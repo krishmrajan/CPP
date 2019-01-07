@@ -19,6 +19,40 @@ else
 echo "64"
 fi`
 echo $LIBS 
+	   
+	   http://216.178.102.59/content/oracle-qa/product/11.2/client_1/rdbms/lib/env_rdbms.mk
+	   
+	    make -f demo_rdbms.mk buildcp_static EXE=cdemostc OBJS=cdemostc.o
+	   buildcp_static: $(OBJS)
+           $(MAKECPSTATICDEMO)
+	   
+	   /*-------------------------------------------------------*/
+	   LIB_PREFIX=lib
+LDLIBFLAG=-l
+LDPATHFLAG=-L
+PATHSEP= :
+LLIBTHREAD=-lpthread
+
+LDOBJSZ=-m64
+DEPLIB_EXT=$(LIB_EXT)
+DEPSO_EXT=$(SO_EXT)
+LIBHOME32=$(ORACLE_HOME)/lib32/
+LIBHOME64=$(ORACLE_HOME)/lib/
+PRODLIBHOME32=$(PRODHOME)/lib32/
+LDLIBS=$(EXPDLIBS) $(EXOSLIBS) $(SYSLIBS) $(EXSYSLIBS) $(MATHLIB) $(USRLIBS)
+OCISTATICLIBS=clntst.a  $(LLIBTHREAD)
+OCISTATICLIBS=$(LLIBCLNTST) $(LDLIBS) $(LLIBTHREAD)
+
+LIBCLNTSTNAME=clntst$(RDBMS_VERSION)
+STATIC_OCCILIBS=$(LLIBOCCISTATIC) $(OCISTATICLIBS)
+LLIBOCCISTATIC=$(LDLIBFLAG)$(occi)$(RDBMS_VERSION)
+ORALIBPATH32=$(ORACLE_HOME)
+CCC=CC 
+MAKEOCCISTATICDEMO32=$(CCC) -m32 $(LIBHOME32) -o $(EXE) $? -locci $(ORACLE_HOME)/lib32/libclntsa.a  -lpthread
+MAKEOCCISTATICDEMO=$(CCC)   -m64 $(LIBHOME64) -o $(EXE) $? -locci $(ORACLE_HOME)/lib/libclntsa.a  -lpthread
+MAKEOCCISTATICDEMO32=$(MAKEOCCISTATICDEMO) $(LDOBJSZ)
+	   /*-----------------------------------------------------*/
+	   
       #define __DBACC_H__
 
 
