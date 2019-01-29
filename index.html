@@ -102,3 +102,22 @@ class Dbacc
       
     </body>
 </html>
+   typedef std::map<std::string, std::string> ConfigInfo;
+    ConfigInfo configValues;
+    std::string line;
+        while (std::getline(fileStream, line))
+        {
+            std::istringstream is_line(line);
+            std::string key;
+            if (std::getline(is_line, key, '='))
+            {
+                std::string value;
+                if (key[0] == '#')
+                    continue;
+
+                if (std::getline(is_line, value))
+                {
+                    configValues[key] = value;
+                }
+            }
+        }
