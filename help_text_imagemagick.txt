@@ -1,0 +1,83 @@
+Computer Memory Table of contents (Please search from the table of contents if the contents do not match the target page)
+Build ImageMagick-6.7.4-2 on AIX 7.1
+
+Things necessary
+  As much as possible install the following library below
+    PNG library / ZLIB library http://www.libpng.org/pub/png/pngcode.html
+      ? There is nothing special to mention
+    JPEG / JFIF library http://www.ijg.org/
+      ? Uninstall the previous version of the library before making it
+    JBIG Library http://www.cl.cam.ac.uk/~mgk25/jbigkit/
+      * Since there is no make install, you can write libraries and include files yourself
+        Copy and install
+    TIFF library ftp://ftp.remotesensing.org/pub/libtiff
+      * Depends on ZLIB, JBIG
+      ? Uninstall the previous version of the library before making it
+      * Basically use xlc for compilation
+      ?configuration
+        CC = xlc CXX = xlC CFLAGS = "- Duint64 = uint64_t - I / home / ocg / pub / include" LDFLAGS = - L / home / ocg / pub / lib CPPFLAGS = - I / home / ocg / pub / include. configure - prefix = / home / ocg / pub --build = rs6000 - ibm - aix
+    bzip2 library http://www.bzip.org/downloads.html
+      ? There is nothing special to mention
+  Ghostscript
+  GNU make
+
+Source
+  Fix magick / locale.c as follows
+    AIX does not have a strtod_l function but some parts that are hidden by MAGICKCORE_HAVE_STRTOD_L
+    It does not seem to be related to strtod_l
+
+93c93
+<#if defined (MAGICKCORE_HAVE_STRTOD_L)
+- -
+> / * #if defined (MAGICKCORE_HAVE_STRTOD_L) * /
+96c96
+<# endif
+- -
+> / * # endif * /
+108c108
+<#if defined (MAGICKCORE_HAVE_STRTOD_L)
+- -
+> / * #if defined (MAGICKCORE_HAVE_STRTOD_L) * /
+139c139
+<# endif
+- -
+> / * # endif * /
+
+configuration
+  Execute configure command
+    When using the IBM XL compiler CC = xlc CXX = xlC ...
+    When using TrueType font --with-windows-font-dir = ...
+
+    CC = xlc CXX = xlC \
+    CFLAGS = "- g - O3 - I / home / ocg / pub / include" \
+    CXXFLAGS = "- g - O 3 - I / home / ocg / pub / include" \
+    CPPFLAGS = "- I / home / ocg / pub / include" \
+    LDFLAGS = "- g - O 3 - bsvr 4 - L / home / ocg / pub / lib - R / home / ocg / pub / lib" \
+      ./configure \
+        - prefix = / home / ocg / pub \
+        - with - jpeg = no \
+        --with-windows-font-dir = / home / ocg / pub / share / fonts / truetype
+
+  * Inevitably try to link using the jpeg library of / usr / local / lib.
+    In my environment it does not exist in / usr / local / lib (you do not have permission to put it)
+    I gave up --with-jpeg = no, because JPEG can still be handled, it is no problem.
+  * Change / home / ocg / pub to / usr / local and change according to your own environment
+
+Build
+
+    gmake
+    gmake check
+
+  * I got an error in convert test
+
+Installation
+
+    gmake install
+
+Remarks
+  Work such as using a lot of memory may cause core dump.
+  For example, if you tried to make gif animation of sea level altitude deviation from 549 Postscript files, it could not be done (no problem in Linux Ubuntu).
+  In that case, you should set the environment variable LDR_CNTRL to MAXDATA = 0x80000000 and execute it.
+  However, after execution, unset LDR_CNTRL.
+  reference
+    http://publib.boulder.ibm.com/tividd/td/ITAME/SC32-1145-01/en_JA/HTML/am41_perftune98.htm
