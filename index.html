@@ -12,6 +12,21 @@
 	   https://stackoverflow.com/questions/39673962/oracle-sql-reset-running-sum-when-zero
 	   
 	   
+	   select S.ID_IMPORT, S.ID_LIGNE, S.CONTRAT,prev_dtaarg, S.DTAARG, S.prev_codeact, S.codeact , case 
+       when nvl(prev_dtaarg,to_date('1900101','YYYYMMDD')) <> dtaarg then 2
+       when nvl(prev_dtaarg,to_date('1900101','YYYYMMDD')) = dtaarg and prev_codeact <> codeact then 2
+       else null end as travail_id_n_  from (
+select id_import , id_ligne ,contrat, dtaarg, LAG(dtaarg, 1, null) OVER (partition by contrat , dtaarg  ORDER BY contrat, dtaarg  ) AS prev_dtaarg,
+       LAG(codeact, 1, NULL) OVER (partition by contrat , dtaarg, codeact ORDER BY contrat, dtaarg , codeact ) AS prev_codeact,
+       row_number() over (partition by null order by contrat , dtaarg,codeact) as dossier_seq_no_bis, 
+       id_dossier , travail_id_n, dossier_seq_no, codeact
+       from t_afer_gt_work
+order by contrat , dtaarg, codeact
+)S
+     
+	   
+	   
+	   
 	      BULK COLLECT examples 
 	      https://livesql.oracle.com/apex/livesql/file/content_CMSE3VBYFCO9IX3PGE4S5C1Q8.html(save exceptions )
 	      https://blogs.oracle.com/oraclemagazine/bulk-processing-with-bulk-collect-and-forall
