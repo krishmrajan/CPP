@@ -3,6 +3,7 @@
 #include <string.h>
 #include <libgen.h>
 http://www.kscodes.com/java/add-watermark-pdf-using-apache-pdfbox/
+java -jar PdfTool.jar "D:\Downloads\Accointance.pdf"
 
 int main ()
 {
