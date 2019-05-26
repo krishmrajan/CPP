@@ -25,3 +25,35 @@ int main ()
   
   return 0;
 }
+int main ( )
+{
+	string line;
+
+	int i = 0;
+
+	vector < string > v;
+
+	ifstream fin;
+
+	fin.open( ( "file.txt" ) );
+
+	if ( fin.is_open())
+	{
+		while ( getline ( fin, line ))
+		{
+			stringstream ss ( line );
+
+			if ( getline ( ss, line, ','))
+			{
+				v.push_back( line );
+			}
+		}
+
+		while ( v.size() )
+		{
+			cout << v [ i ] << "\n";
+			i++;
+		}
+	}
+}
+mkdir -p /home/demo/sub2/Test
