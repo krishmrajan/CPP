@@ -6,6 +6,16 @@
    </head>
    <body>
    <h1>krish RAJAN</h1>
+	   
+	   https://blogs.oracle.com/oraclemagazine/on-top-n-and-pagination-queries
+	   select * 
+  from ( select /*+ FIRST_ROWS(n) */ 
+  a.*, ROWNUM rnum 
+      from ( your_query_goes_here, 
+      with order by ) a 
+      where ROWNUM <= 
+      :MAX_ROW_TO_FETCH ) 
+where rnum  >= :MIN_ROW_TO_FETCH;
 	   https://www.ameli.fr/accueil-de-la-ccam/telechargement/index.php
 	   ORACLE
 	   
