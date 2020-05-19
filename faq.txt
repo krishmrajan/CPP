@@ -1,0 +1,40 @@
+1.Get no of lines from a table under linux / 
+VALUE=$( sqlplus -s username/password <<EOF
+ set heading off;
+ set serveroutput on;
+ select count(*) from <Table_NAME>;
+ quit
+EOF)
+
+2. find all files contains certain keywords
+find . -name '*.sql' -exec grep -il	 'SYNONYM' {} \; -print
+
+
+3. Pro*C useful tags
+Signification des réglages :
+TRIMSPOOL ON : suppression des espaces en fin de ligne
+TAB OFF : non utilisation des tabulations
+EMBEDDED OFF : pas de contrôle sur l'endroit de la page où doit commencer le rapport
+HEADING OFF : en-tête du résultat (= nom des colonnes)
+PAGESIZE 0 : évite la ligne blanche toutes les 14es lignes
+
+
+4. Oracle hints
+/* keep in cache for 
+https://mikesmithers.wordpress.com/2016/06/23/oracle-pinning-table-data-in-the-buffer-cache/
+
+/ fragmentation detail 
+https://orahow.com/how-to-find-and-remove-table-fragmentation-in-oracle-database/
+
+
+5. Get No of pages from PDF files
+Regular expression to count nof pages in a PDF how to 
+with stream
+https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_72/rtref/regexec.htm
+
+https://www.morganslibrary.org/reference/hints.html
+https://www.unix.com/shell-programming-and-scripting/55661-how-get-number-pages-pdf-file.html
+
+https://www.go4expert.com/articles/connect-cpp-oracle-t5442/
+https://livesql.oracle.com/apex/livesql/file/content_C3DBYO1P9SPL57Y0128NCP1KL.html
+https://docs.oracle.com/cd/B10500_01/appdev.920/a97269/pc_11thr.htm
