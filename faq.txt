@@ -38,3 +38,65 @@ https://www.unix.com/shell-programming-and-scripting/55661-how-get-number-pages-
 https://www.go4expert.com/articles/connect-cpp-oracle-t5442/
 https://livesql.oracle.com/apex/livesql/file/content_C3DBYO1P9SPL57Y0128NCP1KL.html
 https://docs.oracle.com/cd/B10500_01/appdev.920/a97269/pc_11thr.htm
+
+6.Buffer pool keep
+ALTER TABLE table_name STORAGE (buffer_pool KEEP);
+
+À partir de l’adresse <https://stackoverflow.com/questions/28039508/how-to-preserve-a-table-in-memory-in-oracle> 
+Nanobiotix NANO.PA
+Rexel RXL.PA
+TechnipFMC. FTI.PA
+Unibail-Rodamco-Westfield (1BR1.F)
+Amundi (AMUN.PA
+http://www.compileonline.com/execute_sql_online.php
+https://livesql.oracle.com/apex
+
+7. find specific files and deleteing unix linux
+find . -name "*.pdf" -exec rm {} \;  
+8. zip info tricks
+zipinfo -1 filename.zip 
+ls -l Filename*.zip  | awk '/d|-/{printf("%03.3f;Gb;%s;\n",$5/(1024*1024*1024),$9)}' > zip_size.csv
+
+8.IBM c++ help page
+https://www.ibm.com/support/knowledgecenter/en/SSLTBW_2.3.0/com.ibm.zos.v2r3.bpxbd00/rtgtpu.htm
+9.Linux help links
+http://linuxg.net/how-to-set-the-setuid-and-setgid-bit-for-files-in-linux-and-unix/
+
+https://www.toptip.ca/2010/03/linux-setgid-on-directory.html
+
+10.Delete Blank Lines
+sed '/^$/d'
+À partir de l’adresse <http://christian-gohmann.de/2017/07/18/generate-csv-output-with-sqlplus-12-2-0-1/> 
+
+11. oslevel to diplay linux kernel versionc
+
+oslevel -s | awk -F- '{printf "AIX %.1f - Technology Level %d - Service Pack %d\n",$1/1000,$2,$3}'
+
+
+12. oracle datapump examples
+À partir de l’adresse <https://oracle-base.com/articles/10g/oracle-data-pump-10g> 
+À partir de l’adresse <http://www.java2s.com/Code/Oracle/User-Previliege/DirectoryprivilegesREADandWRITE.htm> 
+À partir de l’adresse <https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_5007.htm> 
+
+13. recreate oracle indexes
+BEGIN
+    FOR index_entry IN (
+        select INDEX_NAME from user_indexes where table_name='MY_TABLE' and index_type='NORMAL'
+    )
+    LOOP
+        
+        EXECUTE IMMEDIATE 'ALTER INDEX ' || index_entry.INDEX_NAME || ' REBUILD';    END LOOP;
+END;
+
+À partir de l’adresse <https://stackoverflow.com/questions/33441774/rebuilding-all-normal-indexes-for-a-specific-oracle-table> 
+À partir de l’adresse <https://stackoverflow.com/questions/33441774/rebuilding-all-normal-indexes-for-a-specific-oracle-table> 
+
+13.SVN create new branch
+$ svn copy svn+ssh://host.example.com/repos/project/trunk \
+           svn+ssh://host.example.com/repos/project/branches/NAME_OF_BRANCH \
+      -m "Creating a branch of project"
+
+À partir de l’adresse <https://stackoverflow.com/questions/2041/how-do-i-create-a-branch> 
+
+
+ 
