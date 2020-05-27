@@ -852,5 +852,61 @@ BEGIN
     END IF;
 END;
 
+create or replace procedure sys.show_hakan(
+    i_owner     in  varchar2 default user,
+    i_table     in  varchar2
+) as
+    m_obj       number(8,0);
+    m_flags     varchar2(12);
+    m_hakan     number(8,0);
+begin
 
+    /* created by show_hakan.sql    */
+    select
+        obj#,
+/*
+        case
+            when    (spare1 > 5 * power(2,15))
+                then    (spare1 - 5 * power(2,15))
+            when    (spare1 > power(2,17))
+                then    (spare1 - power(2,17))
+            when    (spare1 > power(2,15))
+                then    (spare1 - power(2,15))
+                else    spare1
+        end                 hakan
+*/
+    to_char(
+        bitand(
+            spare1, to_number('ffff8000','xxxxxxxx')
+        ),
+        'xxxxxxxx'
+    )                   flags,
+    bitand(spare1, 32767)           hakan   -- 0x7fff
+    into
+        m_obj,
+        m_flags,
+        m_hakan
+    from
+        tab$
+   where   obj# in (
+            select  object_id
+            from    dba_objects
+            where   object_name = upper(i_table)
+            and object_type = 'TABLE'
+            and owner = upper(i_owner)
+        )
+    ;
+
+    dbms_output.put_line(
+        'Hakan factor - 1 (see bug history) for object ' ||
+        m_obj   || ' (' ||
+        i_owner || '.' ||
+        i_table || ') is ' ||
+        m_hakan || ' with flags ' ||
+        m_flags
+    );
+end;
+/
+
+grant execute on sys.show_hakan to system;
 
