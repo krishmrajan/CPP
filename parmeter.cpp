@@ -505,4 +505,352 @@ log()
 }
 #main
 log "`date`  example log  "
+help
+demodb.shl
+#/bin/shl
+OLD_UMASK=`umask`
+umask 0027
+mkdir -p workdir
+mkdir -p workdir/admin/grisR2/adump
+mkdir -p workdir/admin/grisR2/dpdump
+mkdir -p workdir/admin/grisR2/pfile
+mkdir -p workdir/audit
+mkdir -p /applics/ora12203/cfgtoollogs/dbca/grisR2
+mkdir -p /applics/ora12203/database/dbs
+mkdir -p workdir
+umask ${OLD_UMASK}
+PERL5LIB=$ORACLE_HOME/rdbms/admin:$PERL5LIB; export PERL5LIB
+ORACLE_SID=grisR2; export ORACLE_SID
+PATH=$ORACLE_HOME/bin:$ORACLE_HOME/perl/bin:$PATH; export PATH
+echo You should Add this entry in the /etc/oratab: demoint:/opt/ora12203/database:Y
+/applics/ora12203/database/bin/sqlplus /nolog @Templatedir/DemoDb.sql
+
+
+Demoint.sql
+set verify off
+ACCEPT sysPassword CHAR PROMPT 'Enter new password for SYS: ' HIDE
+ACCEPT systemPassword CHAR PROMPT 'Enter new password for SYSTEM: ' HIDE
+ACCEPT pdbAdminPassword CHAR PROMPT 'Enter new password for PDBADMIN: ' HIDE
+host /opt/ora12203/database/bin/orapwd file=/opt/ra12203/database/dbs/orapwDbaName force=y format=12
+/opt/ora12203/database/bin/sqlplus /nolog @Templatedir/DemoDb.sql
+
+
+DemoDb.sql
+@Templatedir/CreateDB.sql
+@Templatedir/CreateDBFiles.sql
+@Templatedir/CreateDBCatalog.sql
+@Templatedir/lockAccount.sql
+@Templatedir/postDBCreation.sql
+
+
+Create sample createDB.sql 
+SET VERIFY OFF
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+spool Templatedir/CreateDB.log append
+startup nomount pfile="Templatedir/init.ora";
+CREATE DATABASE "DemoDb"
+MAXINSTANCES 8
+MAXLOGHISTORY 1
+MAXLOGFILES 16
+MAXLOGMEMBERS 3
+MAXDATAFILES 100
+DATAFILE 'workdir/system01.dbf' SIZE 700M REUSE AUTOEXTEND ON NEXT  10240K MAXSIZE UNLIMITED
+EXTENT MANAGEMENT LOCAL
+SYSAUX DATAFILE 'workdir/sysaux01.dbf' SIZE 550M REUSE AUTOEXTEND ON NEXT  10240K MAXSIZE UNLIMITED
+SMALLFILE DEFAULT TEMPORARY TABLESPACE TEMP TEMPFILE 'workdir/temp01.dbf' SIZE 20M REUSE AUTOEXTEND ON NEXT  640K MAXSIZE UNLIMITED
+SMALLFILE UNDO TABLESPACE "UNDOTBS1" DATAFILE  'workdir/undotbs01.dbf' SIZE 200M REUSE AUTOEXTEND ON NEXT  5120K MAXSIZE UNLIMITED
+CHARACTER SET WE8ISO8859P15
+NATIONAL CHARACTER SET AL16UTF16
+LOGFILE GROUP 1 ('workdir/redo01.log') SIZE 200M,
+GROUP 2 ('workdir/redo02.log') SIZE 200M,
+GROUP 3 ('workdir/redo03.log') SIZE 200M
+USER SYS IDENTIFIED BY "&&sysPassword" USER SYSTEM IDENTIFIED BY "&&systemPassword";
+spool off
+================
+demodb.init.ora
+db_block_size=8192
+open_cursors=300
+db_name="grisR2"
+control_files=("workdir/control01.ctl", "workdir/control02.ctl")
+compatible=19.0.0
+diagnostic_dest=workdir
+nls_language="AMERICAN"
+nls_territory="AMERICA"
+processes=300
+sga_target=1024m
+audit_file_dest="workdir/admin/2/adump"
+audit_trail=db
+remote_login_passwordfile=EXCLUSIVE
+dispatchers="(PROTOCOL=TCP) (SERVICE=DemoDbXDB)"
+pga_aggregate_target=1024m
+undo_tablespace=UNDOTBS1
+======================
+CreateDB.sql
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+spool Templatedir/CreateDB.log append
+startup nomount pfile="Templatedir/init.ora";
+CREATE DATABASE "grisR2"
+MAXINSTANCES 8
+MAXLOGHISTORY 1
+MAXLOGFILES 16
+MAXLOGMEMBERS 3
+MAXDATAFILES 100
+DATAFILE 'workdir/system01.dbf' SIZE 700M REUSE AUTOEXTEND ON NEXT  10240K MAXSIZE UNLIMITED
+EXTENT MANAGEMENT LOCAL
+SYSAUX DATAFILE 'workdir/sysaux01.dbf' SIZE 550M REUSE AUTOEXTEND ON NEXT  10240K MAXSIZE UNLIMITED
+SMALLFILE DEFAULT TEMPORARY TABLESPACE TEMP TEMPFILE 'workdir/temp01.dbf' SIZE 20M REUSE AUTOEXTEND ON NEXT  640K MAXSIZE UNLIMITED
+SMALLFILE UNDO TABLESPACE "UNDOTBS1" DATAFILE  'workdir/undotbs01.dbf' SIZE 200M REUSE AUTOEXTEND ON NEXT  5120K MAXSIZE UNLIMITED
+CHARACTER SET WE8ISO8859P15
+NATIONAL CHARACTER SET AL16UTF16
+LOGFILE GROUP 1 ('workdir/redo01.log') SIZE 200M,
+GROUP 2 ('workdir/redo02.log') SIZE 200M,
+GROUP 3 ('workdir/redo03.log') SIZE 200M
+USER SYS IDENTIFIED BY "&&sysPassword" USER SYSTEM IDENTIFIED BY "&&systemPassword";
+spool off
+
+CreateDBFiles.sql
+SET VERIFY OFF
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+spool Templatedir/CreateDBFiles.log append
+CREATE SMALLFILE TABLESPACE "USERS" LOGGING  DATAFILE  'workdir/users01.dbf' SIZE 5M REUSE AUTOEXTEND ON NEXT  1280K MAXSIZE UNLIMITED  EXTENT MANAGEMENT LOCAL  SEGME
+NT SPACE MANAGEMENT  AUTO;
+ALTER DATABASE DEFAULT TABLESPACE "USERS";
+spool off
+
+CreateDBCatalog.sql
+SET VERIFY OFF
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+spool Templatedir/CreateDBCatalog.log append
+@/opt/ora12203/database/rdbms/admin/catalog.sql;
+@/opt/ora12203/database/rdbms/admin/catproc.sql;
+@/opt/ora12203/database/rdbms/admin/catoctk.sql;
+@/opt/ora12203/database/rdbms/admin/owminst.plb;
+connect "SYSTEM"/"&&systemPassword"
+@/opt/ora12203/database/sqlplus/admin/pupbld.sql;
+connect "SYS"/"&&sysPassword" as SYSDBA
+@/opt/ora12203/database/sqlplus/admin/pupdel.sql;
+connect "SYSTEM"/"&&systemPassword"
+set echo on
+spool Templatedir/sqlPlusHelp.log append
+@/opt/ora12203/database/sqlplus/admin/help/hlpbld.sql helpus.sql;
+spool off
+spool off
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+spool Templatedir/postDBCreation.log append
+
+lockAccount.sql
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+spool Templatedir/lockAccount.log append
+BEGIN
+ FOR item IN ( SELECT USERNAME, AUTHENTICATION_TYPE FROM DBA_USERS WHERE ACCOUNT_STATUS IN ('OPEN', 'LOCKED', 'EXPIRED') AND USERNAME NOT IN (
+'SYS','SYSTEM') )
+ LOOP
+IF item.AUTHENTICATION_TYPE='PASSWORD' THEN
+  dbms_output.put_line('Locking and Expiring: ' || item.USERNAME);
+  execute immediate 'alter user ' ||
+         sys.dbms_assert.enquote_name(
+         sys.dbms_assert.schema_name(
+         item.USERNAME),false) || ' password expire account lock' ;
+ ELSE
+  dbms_output.put_line('Locking: ' || item.USERNAME);
+  execute immediate 'alter user ' ||
+         sys.dbms_assert.enquote_name(
+         sys.dbms_assert.schema_name(
+         item.USERNAME),false) || ' account lock' ;
+ END IF;
+ END LOOP;
+END;
+/
+spool off
+
+postDBCreation.sql
+
+SET VERIFY OFF
+spool Templatedir/postDBCreation.log append
+host /opt/ora12203/database/OPatch/datapatch -skip_upgrade_check -db demoint;
+connect "SYS"/"&&sysPassword" as SYSDBA
+set echo on
+create spfile='/ora/ora12203/database/dbs/spfiledemoint.ora' FROM pfile='Templatedir/init.ora';
+connect "SYS"/"&&sysPassword" as SYSDBA
+@/syst/adm/sql/fiab#ora/inst_basic.sql
+select 'utlrp_begin: ' || to_char(sysdate, 'HH:MI:SS') from dual;
+@/opt/ora12203/database/rdbms/admin/utlrp.sql;
+select 'utlrp_end: ' || to_char(sysdate, 'HH:MI:SS') from dual;
+select comp_id, status from dba_registry;
+shutdown immediate;
+connect "SYS"/"&&sysPassword" as SYSDBA
+startup ;
+spool off
+exit;
+
+===========
+        inst_basic.sql
+ 
+ ========================
+ some help sql
+ 
+ SELECT  p.name  pref_name,
+        SUBSTR(DBMS_STATS.GET_PREFS(UPPER(p.name)), 1, 30) pref_value
+FROM (
+        SELECT 'autostats_target'          name FROM dual UNION ALL
+        SELECT 'cascade'                   name FROM dual UNION ALL
+        SELECT 'concurrent'                name FROM dual UNION ALL
+        SELECT 'degree'                    name FROM dual UNION ALL
+        SELECT 'estimate_percent'          name FROM dual UNION ALL
+        SELECT 'method_opt'                name FROM dual UNION ALL
+        SELECT 'no_invalidate'             name FROM dual UNION ALL
+        SELECT 'granularity'               name FROM dual UNION ALL
+        SELECT 'publish'                   name FROM dual UNION ALL
+        SELECT 'incremental'               name FROM dual UNION ALL
+        SELECT'incremental_staleness'      name FROM dual UNION ALL
+        SELECT'incremental_level'          name FROM dual UNION ALL
+        SELECT'stale_percent'              name FROM dual UNION ALL
+        SELECT'global_temp_table_stats'    name FROM dual UNION ALL
+        SELECT'options'                    name FROM dual
+) p
+
+
+audit trigger example
+audit create session;
+audit create user;
+REM Audit sur ALTER USER par TRIGGER !!!
+audit alter user;
+audit drop user;
+audit system grant;
+
+declare
+     v_count number(1);
+begin
+select count(1) into v_count from dba_tables where
+table_name='AUDIT_EVENT_TABLE' and owner='SYSTEM';
+if v_count=0 then
+EXECUTE IMMEDIATE  'create table system.audit_event_table
+(
+ sysevent varchar2(20),
+ timestamp date,
+ login_user varchar2(30),
+ client_terminal varchar2(255),
+ instance_num number,
+ database_name varchar2(50),
+ dict_obj_name varchar2(30),
+ dict_obj_type varchar2(20),
+ dict_obj_owner varchar2(30),
+ sql_text varchar2(2000),
+ action number,
+ action_name varchar2(27)
+)
+tablespace sysaux
+';
+     end if;
+end;
+/
+==========
+FUNCTION GET_CLOB_FROM_LONG(
+SCHEMA_NAME VARCHAR2,
+TABLE_NAME VARCHAR2,
+COLUMN_NAME VARCHAR2,
+V_ROWID ROWID) RETURN CLOB IS
+v_clob clob;
+cursor1 INTEGER; -- declare a cursor
+ignore INTEGER; -- value is meaningless for a SELECT statement
+statement VARCHAR2(2000); -- holds the SQL statement to be executed
+out_val VARCHAR2(4000); -- value of the portion of the column returned
+out_length INTEGER; -- length of the portion of the column returned
+num_bytes INTEGER := 4000; -- length in bytes of the segment of the column
+-- value to be selected
+offset INTEGER; -- the byte position in the LONG column at which
+-- the SELECT is to start
+num_fetches INTEGER; -- the number of segments returned
+row_count INTEGER := 0; -- the number of rows selected
+BEGIN
+dbms_lob.createtemporary(v_clob, true,dbms_lob.session);
+statement := 'SELECT '|| COLUMN_NAME ||' FROM ' ||SCHEMA_NAME || '.' || TABLE_NAME || '  WHERE rowid = ''' || V_ROWID||''' ';
+cursor1 := DBMS_SQL.OPEN_CURSOR;
+DBMS_SQL.PARSE(cursor1, statement, DBMS_SQL.NATIVE);
+/* Define the LONG column. */
+DBMS_SQL.DEFINE_COLUMN_LONG(cursor1, 1);
+/* Execute the query. */
+ignore := DBMS_SQL.EXECUTE(cursor1);
+/* Fetch the rows in a loop. Exit when there are no more rows. */
+LOOP
+IF DBMS_SQL.FETCH_ROWS(cursor1) > 0 THEN
+row_count := row_count + 1;
+offset := 0;
+num_fetches := 1;
+/* Get the value of the LONG column piece by piece. Here a loop
+is used to get the entire column. The loop exits when there
+is no more data. */
+LOOP
+DBMS_SQL.COLUMN_VALUE_LONG(cursor1, 1, num_bytes, offset,
+out_val, out_length);
+IF out_length != 0 THEN
+DBMS_LOB.write(v_clob, out_length, offset + 1, out_val);
+offset := offset + num_bytes;
+num_fetches := num_fetches + 1;
+ELSE EXIT;
+END IF;
+   IF out_length < num_bytes THEN EXIT;
+   END IF;
+   END LOOP;
+     ELSE EXIT;
+   END IF;
+  END LOOP;
+  DBMS_SQL.CLOSE_CURSOR(cursor1);
+  return v_clob;
+END GET_CLOB_FROM_LONG;
+
+
+sys.show_hakan ??
+create or replace TRIGGER system.after_alter AFTER ALTER on database
+DECLARE
+   sql_text ora_name_list_t;
+   stmt VARCHAR2(2000);
+   n pls_integer;
+BEGIN
+    IF (ora_dict_obj_type='USER') THEN
+            n := ora_sql_txt(sql_text);
+        IF (n>0) THEN
+            FOR i IN 1..n LOOP
+                stmt := stmt || sql_text(i);
+            END LOOP;
+        ELSE
+            stmt := to_char(n);
+        END IF;
+ insert into system.audit_event_table
+             (sysevent,
+              timestamp,
+              login_user,
+              client_terminal,
+              instance_num,
+              database_name,
+              dict_obj_name,
+              dict_obj_type,
+              dict_obj_owner,
+              sql_text,
+              action,
+              action_name
+             )
+        values (ora_sysevent,
+                sysdate,
+                ora_login_user,
+                ora_client_ip_address,
+                ora_instance_num,
+                ora_database_name,
+                ora_dict_obj_name,
+                ora_dict_obj_type,
+                ora_dict_obj_owner,
+                'text of triggering statement: ' ||stmt,
+                43,
+                'ALTER USER'
+       );
+    END IF;
+END;
+
+
 
