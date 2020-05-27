@@ -480,4 +480,29 @@ compile command
 oraxlc -o toto loger.cpp Dbacc.cpp toto.cpp.cpp parameter.cpp  -qtls=local-exec  -O3 -q32 -DSS_32BIT_SERVER -qwarn32 -qinfo=uni -DAIXRIOS -
 qflag=s:s -I/xxxx/ora11204/11.2.0/rdbms/public -L/xxx/ora11204/11.2.0/lib32
  -L/xxx/ora11204/11.2.0/lib32/stubs -lc /xxx/ora11204/11.2.0/lib32/libclntsh.a  -locci -lclntsh -lpthread -lm -lpdf -lld
+Laurence.desnoyers@gmail.com
+
+La méthode utilisée pour effectuer une migration des bases Oracle en version 19C consiste à :
+•	Installation du moteur Oracle 19C
+•	Création de la base cible en 19C (CDB uniquement)
+•	Récupérer les DDL (users, tbs, profiles …) de la base source
+•	Sauvegarde RMAN de la base source (uniquement si même stockage)
+•	Export datapump de la base source
+•	Suppression de la base source (uniquement si même stockage)
+•	Import datapump de la base source sur la base cible
+•	Modification des liens réseaux et profiles
+•	Application des spécificités des environnements 
+Ces grandes lignes comportent une multitude d’actions et chaque action diffères selon les bases. De ce fait, il a été décidé de construire un fichier Excel afin de faciliter grandement le travail du DBA lors de la migration.
+Ce document décrit essentiellement comment remplir le fichier Excel associé pour pouvoir réaliser la migration
+
+PGM=$(basename ${0%%.ksh})
+DATEEXEC=$(date "+%Y%m%d_%H%M%S")
+LOGFILE=${DIRLOG}/$(basename ${0} | sed -e 's/.ksh$//')_${DATEEXEC}.log
+
+log()
+{
+        echo ${PGM}'|'$(date "+%Y%m%d_%H%M%S")'|'${*} |  tee -a ${LOGFILE}
+}
+#main
+log "`date`  example log  "
 
