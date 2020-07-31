@@ -98,5 +98,10 @@ $ svn copy svn+ssh://host.example.com/repos/project/trunk \
 
 À partir de l’adresse <https://stackoverflow.com/questions/2041/how-do-i-create-a-branch> 
 
+1.08.2020
+
+Read https://thoughts.t37.net/designing-the-perfect-elasticsearch-cluster-the-almost-definitive-guide-e614eabc1a87
+https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html
+
 
  
