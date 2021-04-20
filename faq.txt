@@ -91,7 +91,7 @@ END;
 À partir de l’adresse <https://stackoverflow.com/questions/33441774/rebuilding-all-normal-indexes-for-a-specific-oracle-table> 
 À partir de l’adresse <https://stackoverflow.com/questions/33441774/rebuilding-all-normal-indexes-for-a-specific-oracle-table> 
 
-13.SVN create new branch
+14.SVN create new branch
 $ svn copy svn+ssh://host.example.com/repos/project/trunk \
            svn+ssh://host.example.com/repos/project/branches/NAME_OF_BRANCH \
       -m "Creating a branch of project"
@@ -104,4 +104,5 @@ Read https://thoughts.t37.net/designing-the-perfect-elasticsearch-cluster-the-al
 https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.html
 
 
- 
+15. bulkprocess elasticsearch how to 
+https://www.programmersought.com/article/4058857330/
