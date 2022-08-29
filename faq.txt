@@ -106,3 +106,46 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/_installation.ht
 
 15. bulkprocess elasticsearch how to 
 https://www.programmersought.com/article/4058857330/
+
+
+16. mailx example 
+echo  "hello " | mailx -s "report " -a  toto.txt tt.tt@com
+
+17. sed example
+
+                        # substitute ("s/")
+sed 's/^[[:blank:]]*//; # parts of lines that start ("^")  with a space/tab 
+     s/[[:blank:]]*$//' # or end ("$") with a space/tab
+                        # with nothing (/)
+                        
+À partir de l’adresse <https://unix.stackexchange.com/questions/102008/how-do-i-trim-leading-and-trailing-whitespace-from-each-line-of-some-output> 
+
+18. Linux hardware details
+Lsof to display the file size in Mbytes
+lsof | grep /var*  | numfmt --field=8 --to=iec | head
+
+À partir de l’adresse <https://unix.stackexchange.com/questions/253321/how-to-display-size-human-readable-in-lsof-grep-var> 
+
+lsof | grep /var* | awk '{for(i=1;i<=6;i++){printf "%s ", $i}; print $7/1048576 "MB" " "$8" "$9 }'
+
+À partir de l’adresse <https://unix.stackexchange.com/questions/253321/how-to-display-size-human-readable-in-lsof-grep-var> 
+
+Command numfmt
+http://www.gnu.org/software/coreutils/manual/html_node/numfmt-invocation.html#numfmt-invocation
+
+19. list top 10 largest files 
+Large 10 files
+du -a dirname | sort -n -r | head -n 10
+
+
+20. Linux Memory 
+Lshw  (to show ls hardware )
+
+LinuxMemory 
+
+pidstat -l -r|sort -k8nr
+
+21.
+
+
+
