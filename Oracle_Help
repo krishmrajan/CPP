@@ -144,7 +144,47 @@ FROM TABLE_NAME  ,
 
 https://dba12c.wordpress.com/2015/08/03/sqlplus-run-in-background-with-nohup/
 
-  
+ 
+ Get session details long running idle process oracle
+ 
+ SELECT S.SID,
+       S.SERIAL#,
+       S.USERNAME DATABASE_USER,
+       TO_CHAR(LOGON_TIME, 'DD-MON-YYYY HH24:MI:SS' ) LOGON_TIME,
+       S.STATUS,
+       S.MACHINE,
+       S.PORT,
+       S.PROGRAM,
+      CASE  
+        WHEN LAST_CALL_ET< 60 THEN LAST_CALL_ET || ' Seconds'
+        WHEN LAST_CALL_ET< 3600 THEN ROUND(LAST_CALL_ET/60) || ' Minutes'
+        WHEN LAST_CALL_ET< 86400 THEN ROUND(LAST_CALL_ET/60/60,1) || ' Hour(s)'
+      ELSE
+        ROUND(LAST_CALL_ET/60/60/24,1) || ' Day(s)'
+     END INACTIVE_TIME
+FROM
+       V$SESSION S, V$PROCESS P
+WHERE
+      S.PADDR=P.ADDR AND
+      S.STATUS = 'INACTIVE'
+      -- To find out all session that are inactive more than 1 hour
+      -- AND S.LAST_CALL_ET  >= 3600
+ORDER BY LAST_CALL_ET DESC;
+
+À partir de l’adresse <https://dbpilot.net/2020/how-to-terminate-all-idle-sessions-processes-in-an-oracle-database-automatically/> 
+
+
+Oracle FlashBack technology for rollback
+
+https://gavinsoorma.com/2011/08/does-goldengate-support-oracle-flashback/
+
+Réplication Uni directionnelle avec Oracle GoldenGate - EASYTEAM
+GoldenGate checkpoint table and flashback database – Matthew Walden – Oracle DBA (wordpress.com)
+Schema replication using oracle goldengate DBACLASS
+
+
+KAFKA 
+https://www.rittmanmead.com/blog/2019/02/spark-streaming-and-kafka/
   
 
 
