@@ -1,0 +1,155 @@
+https://odieweblog.wordpress.com/ usefull link to learn 
+
+OEM console
+https://excfrc10vm0104.fr2.ocm.s1518680.oraclecloudatcustomer.com:7802/em/
+
+https://www.geeksforgeeks.org/performing-database-operations-java-sql-create-insert-update-delete-select/
+
+
+2. generic grant select statement
+begin 
+for list_table in ( 
+select table_name from user_tables 
+    )
+    loop
+    --dbms_output.put_line('EXECUTE IMMEDIATE  ''GRANT SELECT ON ' || '&owner' || '.' || list_table.TABLE_NAME || ' TO ' || '&grantee' || ' ;' );
+    dbms_output.put_line('GRANT SELECT ON ' || '&owner' || '.' || list_table.TABLE_NAME || ' TO ' || '&grantee' || ' ;' );
+    EXECUTE IMMEDIATE  'GRANT SELECT ON ' || '&owner' || '.' || list_table.TABLE_NAME || ' TO ' || '&grantee' ;
+    end loop;
+end;
+
+
+3. Un usable indexes 
+https://www.orafaq.com/wiki/Unusable_indexes
+
+crsctl stat res -t -init
+
+select
+nam.ksppinm NAME,
+nam.ksppdesc DESCRIPTION,
+val.KSPPSTVL
+from
+x$ksppi nam,
+x$ksppsv val
+where nam.indx = val.indx and nam.ksppinm like '%kgl_large_heap_%_threshold%';
+
+À partir de l’adresse <https://sysdba.net/library-cache-object-loaded-into-sga/> 
+
+
+4. show plan xml
+alter session set statistics_level=all;
+select * from table(dbms_xplan.display_cursor(format=>'allstats last'))
+
+5. cache hit ratio 
+select o.owner, o.object_type, o.object_name, count(b.objd) from v$bh b, dba_objects o
+where b.objd=o.object_id
+group by o.owner, o.object_type, o.object_name
+having count(b.objd) > (select to_number(value*0.5) from v$parameter
+                                        where name='db_block_buffers')
+
+SELECT sum(value)/1024/1024/1024 "TOTAL SGA (Gb)" FROM v$sga;
+
+À partir de l’adresse <https://chadstechnoworks.com/wptech/db/how_to_check_oracle_database_memory_and_storage_size.html> 
+
+
+select unique 'df -k '||a.MTPOINT MOUNT_POINT
+from ( select substr(FILE_NAME,0,instr(FILE_NAME,'/',1,2)-1) MTPOINT
+from dba_data_files
+union
+select substr(FILE_NAME,0,instr(FILE_NAME,'/',1,2)-1) MTPOINT
+from dba_temp_files
+union
+select substr(MEMBER,0,instr(MEMBER,'/',1,2)-1) MTPOINT
+from v$logfile
+union
+select substr(NAME,0,instr(NAME,'/',1,2)-1) MTPOINT
+from v$controlfile
+) a;
+
+
+7 usefull sites 
+https://www.morganslibrary.org/reference/archivelog.html
+À partir de l’adresse <https://chadstechnoworks.com/wptech/db/how_to_check_oracle_database_memory_and_storage_size.html> 
+Sql developer change language setting user interface
+https://oracledeli.wordpress.com/2011/09/28/sql-developer_change_gui_language_to_english/
+Very important  how to set default  varchar2() createion as char instead of bytes
+https://oracle.developpez.com/actu/274238/Oracle-BYTES-ou-CHAR-pour-NLS-LENGTH-SEMANTICS-un-billet-blog-de-Fabien-Celaia/
+--set head off
+--set feed off
+--select COLUMN_NAME ||','|| chr(10)  from ALL_TAB_COLUMNS where owner='XXXX' and TABLE_NAME ='YYYY' ORDER BY COLUMN_ID
+****Impdb monitoring
+https://databaseinternalmechanism.com/2016/09/13/how-to-monitor-datapump-jobs/
+https://orahow.com/queries-to-monitor-expdp-datapump-jobs-status/
+Check long_running proces for impdb
+SELECT 
+OPNAME, 
+START_TIME,
+SID, 
+SERIAL#, 
+CONTEXT, 
+SOFAR, 
+TOTALWORK,
+    ROUND(SOFAR/TOTALWORK*100,2) "%_COMPLETE" ,message
+FROM 
+V$SESSION_LONGOPS
+
+create database link 
+CREATE DATABASE LINK xx_lnk_ser
+CONNECT TO  toto_user IDENTIFIED BY "*****"
+USING 'services_name';
+
+Oracle Instance details 
+Instance Details 
+select sys_context('userenv', 'server_host') from dual;
+select ora_database_name from dual;
+select * from global_name
+
+select * from global_name;
+select distinct sid from v$mystat;
+SHOW PARAMETER INSTANCE_NAME;
+
+SELECT * FROM V$INSTANCE;
+SHOW PARAMETER SERVICE_NAMES;
+
+select SERVICE_NAME from gv$session where sid in (
+select sid from V$MYSTAT)
+
+Oracle DataMasking 
+
+dbms_redact.add_policy  datamasking 
+À partir de l’adresse <https://stackoverflow.com/questions/22551395/oracle-data-masking> 
+
+DBMS_CRYPTO
+À partir de l’adresse <https://docs.oracle.com/cd/E11882_01/server.112/e41481/tdm_data_masking.htm#RATUG4007> 
+
+extracting xml using urn syntax
+
+select COLUMN_NAME 
+FROM TABLE_NAME  ,
+  XMLTABLE( 
+  XMLNamespaces('http://swift.com/SCL/CommonTypes' AS "fndt", DEFAULT 'urn:swift:xsd:admi.014.001.02','urn:iso:std:iso:20022:tech:xsd:pain.001.001.03' AS "pain"), '.' 
+  PASSING XML_COLUMN 
+  COLUMNS 
+  "COLUMN_NAME1" VARCHAR2(150) PATH '/Cdtr/pain:Nm' , 
+  "COLUMN_NAME2" VARCHAR2(150) PATH '/Dbtr/pain:Nm') xml_COLUMN
+  
+  
+  
+  update stats
+  
+  EXECUTE DBMS_STATS.GATHER_SCHEMA_STATS(ownname => 'SIMON');
+
+À partir de l’adresse <https://www.krenger.ch/blog/oracle-dbms_stats-gather_schema_stats-example/> 
+
+
+https://dba12c.wordpress.com/2015/08/03/sqlplus-run-in-background-with-nohup/
+
+  
+  
+
+
+
+
+
+
+
