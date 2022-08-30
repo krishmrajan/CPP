@@ -145,7 +145,12 @@ LinuxMemory
 
 pidstat -l -r|sort -k8nr
 
-21.
+21.Elastic search 
+https://oracle-base.com/articles/12c/plsql-object-types-for-json-12cr2
+https://docs.oracle.com/en/database/oracle/oracle-database/12.2/adjsn/function-JSON_TABLE.html#GUID-5CDC25A8-A516-44B8-9C8F-0CE666933903
+Very interesting article on oracle to elastic
+https://tomeuwork.wordpress.com/2016/06/13/indexing-into-elasticsearch-from-oracle-with-plsql/
+https://javamana.com/2021/06/20210614230702300Z.html
 
 
 
