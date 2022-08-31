@@ -152,5 +152,12 @@ Very interesting article on oracle to elastic
 https://tomeuwork.wordpress.com/2016/06/13/indexing-into-elasticsearch-from-oracle-with-plsql/
 https://javamana.com/2021/06/20210614230702300Z.html
 
+spark learning
+
+Free online course ( https://www.learningjournal.guru/ ) for Big Data Hadoop.
+•       Apache Hadoop Foundation
+•       Apache Spark Foundation 
+•       Apache Kafka Foundation
+
 
 
