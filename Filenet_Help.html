@@ -1,0 +1,765 @@
+Panagon Capture 3.0.1 GA et
+
+Trousse à outils de Panagon Capture 3.0.1
+
+Notes de version
+
+12 Octobre, 2000
+
+ 
+
+ 
+
+Introduction
+
+Vous trouverez dans ce des informations de dernière minute à connaître avant d'installer, de configurer et d'utiliser Panagon Capture 3.0.1 et sa Trousse à outils. Il complète le Guide d'installation et l'aide en ligne. Le fonctionnement standard de Panagon Capture et de la Trousse à outils de Panagon Capture 3.0.1 est décrit dans l'aide en ligne et dans la documentation fournies avec le logiciel.
+
+Les CD-ROM suivants sont livrés avec le progiciel Panagon Capture 3.0.1 :
+
+Panagon Capture 3.0.1
+Panagon Capture – Kofax Adrenaline 3.2
+Trousse à outils de Panagon Capture 3.0.1
+Optus FACSys 4.7
+Remarque : Le CD-ROM de Panagon Capture – Kofax Adrenaline 3.2 contient les fichiers exécutables du logiciel Kofax de Traitement des documents. Les présentes notes y font référence sous le nom de Fichiers exécutables Kofax Image Controls.
+
+Des mises à jour de ces notes de version seront publiées sur le site Web de FileNet à l'adresse suivante :
+
+http://www.css.filenet.com – après vous être connecté, consultez les rubriques :
+
+Dépannage
+
+Notes de version du produit
+
+Logiciels tiers pris en charge avec Panagon Capture
+
+Panagon Capture 3.0.1 est pris en charge avec les logiciels tiers suivants :
+
+Windows 2000 avec SP1 (voir la remarque importante ci-dessous)
+Windows NT 4.0 avec les Service Packs 4, 5 et 6a
+Windows 98 et 98 Deuxième Édition
+Internet Explorer 5.0
+Windows 95a, 95b et 95c
+Microsoft Visual Studio 6.0 avec SP3
+Fichiers exécutables du logiciel Kofax Adrenaline pour le Traitement de documents version 3.22.04B
+Fichiers exécutables du matériel Kofax pour KF-92xx version 3.2a
+Fichiers exécutables du matériel Kofax pour cartes Adrenaline 850s et 1700s version 3.25.22 (pour scanners Kodak uniquement)
+Fichiers exécutables du matériel Kofax pour cartes Adrenaline 850 et 1700 version 3.23 (pour scanners autres que Kodak)
+Optus FACSys version 4.7 pour Capture FaxEntry (Voir ci-dessous)
+Trousse à outils de Pixel version 4.2 (installée par le programme d'installation de Capture)
+Adobe Acrobat Capture version 2.01 pour Capture Desktop
+Pour avoir plus de détails, consultez le chapitre consacré aux conditions requises dans le Guide d'installation de Panagon Capture version 3.0.1. Panagon Capture peut être intégré à Power Builder, mais FileNET n'assure pas de support technique pour cet environnement.
+
+Si vous ne trouvez pas votre scanner dans la liste des pilotes installés avec Capture, vous pouvez aurez peut-être à télécharger un pilote de numérisation spécifique de Pixel. En outre, les fabricants de matériels fournissent de temps en temps des mises à jour de leurs pilotes. Pour avoir des détails sur ces mises à jour, consultez le site Web du fabricant de votre scanner ou, pour avoir plus d'informations, celui de Pixel Translations à l'adresse suivante : (www.pixtran.com).
+
+Panagon Capture 3.0.1 fonctionne avec les versions 4.51 à 4.7 d'Optus FACSys. La mise à niveau d'Optus n'est pas obligatoire si vous disposez d'une version 4.51 ou 4.6. Cependant, le produit est livré désormais avec la version 4.7, disponible également si vous êtes client FAX. FileNET s'engage à assurer le support technique de Capture avec une de ces trois versions, mais ne peut pas garantir qu'Optus assurera le support technique d'une version autre que la 4.7. Si un problème Capture nécessite un correctif logiciel de la part d'Optus, vous aurez peut-être à installer FACSys 4.7 pour utiliser cette correction.
+
+Remarque importante concernant la compatibilité de Windows 2000 :
+
+FileNET a testé avec succès Panagon Capture 3.0.1 sous Windows 2000 (exception faite des problèmes répertoriés dans la partie Restrictions et problèmes logiciels connus de ce document).
+
+Cet environnement nécessite Panagon IDM Desktop 3.1.En outre, Capture 3.0.1 comprend plusieurs produits logiciels tiers qui n’ont pas tous été homologués pour Windows 2000. Les auteurs de ces produits logiciels n’assurant pas de support technique pour l’environnement Windows 2000, FileNET ne garantit pas la prise en charge intégrale de tout problème susceptible de survenir lors de l’utilisation de Capture 3.0.1 avec Windows 2000.
+
+Si un problème venait à surgir de façon spécifique dans un logiciel FileNET, FileNET fournirait la meilleure assistance possible pour cet environnement. Toutefois, si FileNET constate qu’un problème concerne un produit logiciel tiers pour lequel le support technique de Windows 2000 n’est pas disponible, il se pourrait que FileNET ne soit pas en mesure d’y apporter une solution. En définitive, la décision de fournir ou non les moyens de corriger un défaut logiciel ou d’y apporter une solution est à la seule discrétion de FileNET.
+
+L’homologation complète de Panagon Capture pour Windows 2000 est prévue dans la version 3.1.
+
+Logiciels pris en charge par le serveur FileNET
+
+Panagon Capture 3.0.1 hérite des versions des logiciels IDMIS et IDMDS prises en charge par IDMDT 3.0. IDMDT 3.0 prend actuellement en charge les logiciels de serveur FileNET suivants :
+
+IDMIS 3.4.2 avec le service pack version 2 ou ultérieure
+IDMDS 4.3 ou 5.1
+Panagon Capture 3.0.1 nécessite IDMDT 3.0.0-002 comme correctif minimal. À la sortie de Capture 3.0.1, c'est la version 3.0.0-005 d'IDMDT qui a été utilisée pour les tests finaux. En général, FileNET maintiendra la comptabilité entre les correctifs logiciels les plus récents de Capture 3.0.1 et d'IDM Desktop 3.0 ; le support technique correspondant sera fourni.
+
+Pour avoir plus de détails sur les impératifs matériels et logiciels, consultez le chapitre consacré à ce sujet dans le Guide d'installation de Capture.
+
+ 
+
+Coexistence de Panagon Capture
+
+FileNET prend en charge la coexistence sur le même PC de Panagon Capture 3.0.1 et des produits tiers et FileNET suivants :
+
+Microsoft Outlook 98
+Microsoft Office 97
+Microsoft Office 2000
+Microsoft Visual Studio 6.0
+Panagon Visual WorkFlo 3.02
+FileNET Workforce Desktop 5.03
+Panagon Report Manager 4.0
+Panagon Print 4.1
+Cartes de contrôle de scanners de Panagon Capture
+
+La section suivante décrit la configuration que doivent respecter les stations de travail Panagon Capture équipées pour la numérisation ou important des fichiers. La liste de compatibilité matérielle de Microsoft Windows NT (HCL) est le document de référence en matière de compatibilité matérielle pour Windows NT Server. Vous pouvez vous procurer la version la plus récente de la liste HCL à l'adresse suivante : http://www.microsoft.com/hwtest/hcl
+
+Panagon Capture peut être utilisé avec des scanners SCSI et Video. Les scanners SCSI sont pris en charge par l'interface ISIS de Pixel Translations. Les scanners Video sont pris en charge par l'interface des commandes d'images de Kofax. À l'heure actuelle, Panagon Capture ne prend pas en charge les scanners USB (Universal Serial Bus) ni ceux qui utilisent l'interface TWAIN.
+
+Quand vous utilisez des scanners SCSI, l'architecture de Panagon Capture est indépendante de la carte physique SCSI installée sur votre système. Pour cette raison, FileNET ne recommande ni ne déconseille aucune carte SCSI en particulier. Toutes les cartes SCSI prises en charge par le fabricant de votre scanner sont compatibles avec Panagon Capture. Cependant, Pixel Translations recommande l'utilisation de cartes SCSI Adaptec avec ISIS. Pour en savoir plus sur les recommandations appropriées selon votre configuration et les performances exigées, consultez le fabricant de votre scanner. La carte Adaptec SCSI 2940 a été utilisée pour tester Panagon Capture 3.0.1 avec les scanners ISIS. Les cartes 2910, 2930 et 3940 font partie des autres cartes Adaptec compatibles avec ISIS.
+
+Avec des scanners Video, les cartes Kofax KF92xx et Adrenaline peuvent être utilisées sur Panagon Capture 3.0.1. Notez que Kofax fournit aussi des versions SCSI de cartes Adrenaline, dont les cartes 850 et 1700. Quand elles sont utilisées avec Capture, les cartes Adrenaline SCSI nécessitent le logiciel Kofax Image Controls et ne peuvent pas être utilisées avec ISIS.
+
+Si vous prévoyez d'utiliser une carte Adrenaline SCSI avec un scanner Kodak de milieu ou de haut de gamme, nous vous recommandons de consulter le document « Using the Kodak scanners with Kofax » et d'en suivre les suggestions avant d'utiliser la carte avec Panagon Capture. Le document Kofax est disponible sur le site Web de CSS à l'adresse suivante : (www.css.filenet.com). Pour plus de détails, consultez aussi la remarque STR 53768.
+
+Résolution des problèmes relatifs aux scanners
+
+Capture 3.0.1 inclut un exemple de programme de numérisation, MVIEW.EXE, conçu pour être utilisé avec des scanners ISIS. Après avoir installé Capture, vous trouverez ce programme dans le dossier « \winnt\pixtran » de votre PC.
+
+Pour les scanners Kofax, un programme semblable, VCDEM32.EXE, se trouve dans le dossier « \Program Files\Kofax\IMGCTLS\BIN ».
+
+En cas de problème de numérisation, vérifiez s'il peut être reproduit avec l'exemple de programme de numérisation ou s'il est spécifique à Capture.
+
+Installation de Panagon Capture 3.0.1
+
+Le CD Panagon Capture 3.0.1 fournit un guide d'installation complet au format PDF. Il est fortement conseillé de lire les sections de ce manuel se rapportant à la configuration de votre système avant de commencer.
+
+Notez que Acrobat Reader 4.0 se trouve dans le dossier Cap_docs\Readers du CD-ROM de Panagon Capture 3.0.1. Ce logiciel permet d’afficher la documentation de Capture qui est au format PDF. Vous devez utiliser Acrobat Reader 4.0 avec cette version de Capture. Les versions précédentes pourraient perturber l’affichage des images PDF capturées. Désinstallez les versions antérieures de Acrobat Reader avant d’installer la version 4.0. S’il vous est impossible d’installer ce logiciel à l’aide du CD-ROM, téléchargez-le depuis le site Web d’Adobe (http://www.adobe.com).
+
+Si vous installez Panagon Capture à partir d'un CD-ROM, ne retirez pas le CD-ROM du lecteur pendant l'installation, sauf si vous y êtes invité.
+
+Avant d’installer Capture 3.0.1, vous devez installer IDMDT 300-002 (ou plus récent) ou 3.1. Nous vous conseillons de consulter le chapitre Backup and Restore Procedures du guide d’installation de Panagon Capture version 3.0.1 pour obtenir des instructions sur la sauvegarde de vos bases de données locales et distantes. Les progiciels suivants sont disponibles sur le CD-ROM de Panagon Capture 3.0.1 ; chacun d'eux nécessite une clé différente :
+
+Capture Professional – Volume élevé
+Capture Professional – Volume moyen
+Capture Professional – Volume faible
+Capture Professional – Personnel
+Entrée de documents de Capture Professional
+Télécopies entrantes de Capture Professional
+Importation de fichiers de Capture Professional
+Capture Desktop
+Tous les progiciels Capture sont pris en charge sous Windows NT. L'Entrée de documents de Capture Professional est le seul progiciel Capture également pris en charge sous Windows 9x. Capture 3.0.1 est la dernière version de Capture qui sera prise en charge sous Windows 9x.
+
+Le programme d'installation de Capture 3.0.1 installe automatiquement la Trousse à outils de Pixel version 4.2 pour les deux progiciels Capture Desktop et Numérisation de Capture Professional. Pour avoir une liste des scanners pris en charge par la Trousse à outils 4.2 de Pixel, consultez la section Scanners ISIS pris en charge. Si vous avez un scanner Kofax, vous devez installer, avant Capture, une des trousses à outils des fichiers exécutables du matériel Kofax selon la carte utilisée. Pour des raisons pratiques, les fichiers exécutables du matériel Kofax sont fournis sur le CD-ROM de Panagon Capture dans le dossier « \Kofax Runtime ».
+
+Si vous sélectionnez l'option Traitement de documents dans la boîte de dialogue de sélection des progiciels, vous serez invité à installer les Fichiers exécutables Kofax Image Controls version 3.2 à l’aide du CD-ROM de Panagon Capture – Kofax Adrenaline 3.2. Cette remarque s'applique à Capture Professional ainsi qu'à Capture Desktop. Si vous sélectionnez l'option Adobe Acrobat Capture dans la boîte de dialogue de sélection des progiciels, vous serez invité à installer le logiciel Adobe Capture version 2.01. L'option Adobe ne s'applique qu'à Capture Desktop.
+
+Si vous prévoyez d'installer l'Entrée de télécopies sur votre station de travail, Optus FACSys doit être installé après IDM et avant Capture. Si vous utilisez FACSys 4.7, la dernière version des correctifs d'Optus doit être aussi installée. Pour des raisons pratiques, les correctifs d'Optus peuvent être téléchargés à partir du site Web de FileNET, à l'adresse suivante :
+
+ftp://ftp.css.filenet.com/pub/archives/hot_downloads/server_fixes/CaptureFax/Optus/
+
+Mise à niveau de Panagon Capture vers la version 3.0.1
+
+Si vous effectuez une mise à niveau d’une version de Capture autre que 3.0 GA, vous devez désinstaller cette version avant d’installer la version 3.0.1. Pour plus de détails, reportez-vous au guide de conversion d’une version antérieure de Capture (2.x) à la version 3.0.1 (Converting to Capture 3.0.1 from a Previous (2.x) Release Guide). Si vous effectuez une mise à niveau de Capture 3.0 GA vers Capture 3.0.1, reportez-vous à la partie Upgrade from Capture 3.0 to Capture 3.0.1 du guide d’installation de Panagon Capture version 3.0.1 pour plus de détails.
+
+Installation de la Trousse à outils de Panagon Capture 3.0.1
+
+Les fichiers situés sur le disque de la Trousse à outils de Panagon Capture peuvent être lus directement à partir du CD-ROM. Pour que vous puissiez y accéder plus facilement, FileNET recommande de copier tous les fichiers et répertoires du CD-ROM de la Trousse à outils vers le dossier C:\Program Files\FileNET\Capture\Toolkit du disque dur local.
+
+ 
+
+Désinstallation
+
+Le programme de désinstallation de Panagon Capture 3.0.1 ne supprime pas de votre PC les Fichiers exécutables Kofax Image Controls ni le logiciel Adobe Capture. Vous devez désinstaller ces produits séparément avec leur propre programme de désinstallation.
+
+ 
+
+Remarques importantes concernant Panagon Capture 3.0.1
+
+Restrictions générales
+
+Cette version de Panagon Capture et de la Trousse à outils de Panagon Capture 3.0.1 présente les restrictions suivantes :
+
+Capture Professional et Capture Desktop ne peuvent pas coexister sur le même PC.
+FileNET ne prend pas en charge, dans la même application, l'utilisation d'IDM Desktop ou des commandes de Capture avec des contrôles WorkFlo de WorkForce Desktop. Il s'agit d'une restriction permanente.
+Capture ne fournit pas de mise à niveau automatisée vers la version 3.0.1 à partir des versions Capture Professional 2.0.x ou Capture Desktop 3.0 FCS. Si vous utilisez l’une de ces versions de Capture, désinstallez-la avant d’installer Capture 3.0.1. Il n’est pas nécessaire de désinstaller Capture 3.0 GA avant d’installer Capture 3.0.1. Reportez-vous à la partie Upgrade from Capture 3.0 to Capture 3.0.1 du guide d’installation de Panagon Capture version 3.0.1 pour plus de détails.
+Capture ne prend pas en charge plusieurs scanners sur le même PC.
+FileNET ne prend en charge les anciens composants de numérisation (ptscan.ocx et kfbee.ocx) que dans le cas de régressions ou de problèmes GPF sur les scanners répertoriés dans Capture 2.0.2. Aucun support technique des anciens composants de numérisation ne sera fourni pour les scanners cités comme « testés » ou « configurables » avec Capture 2.0.2.
+La prochaine version de Capture ne prendra pas en charge les anciens composants de numérisation.
+Composant de numérisation
+
+Des images numérisées peuvent parfois apparaître noires ou en noir sur blanc. Cela est généralement provoqué par la configuration d'un lot utilisant un jeu de paramètres créé pour un autre scanner. Si vous constatez ce phénomène, vérifiez que votre lot utilise le jeu de paramètres créé pour votre scanner.
+
+ 
+
+Remarques importantes concernant la Trousse à outils de Panagon Capture 3.0.1
+
+Exemples de code source
+
+Le CD-ROM de la Trousse à outils de Panagon Capture 3.0.1 inclut plusieurs exemples de programmes. Écrits en Visual Basic ou en C++, ces programmes illustrent les techniques de programmation utilisées avec les objets OLE de Capture.
+
+Les exemples se trouvent dans le répertoire FileNET\Capture\Toolkit\Src\Samples. Le répertoire racine est celui que vous avez sélectionné pour copier le CD-ROM de la Trousse à outils ; il s'agit généralement de C:\Program Files. Deux jeux d'exemples sont fournis :
+
+Le code source complet Visual Basic du programme Panagon Capture Desktop.
+Des exemples de programmes développés pour être utilisés avec Capture Professional.
+Conçus dans le seul but d'illustrer le fonctionnement du produit, ils ne conviennent pas à une utilisation directe ni à un déploiement en production. Ils ne doivent être utilisés qu'à titre de référence.
+
+Code source de Capture Desktop
+
+Le code source complet Visual Basic du programme Panagon Capture Desktop est inclus. Il se trouve dans le dossier \Src\Samples\QuickCapture du CD-ROM de la Trousse à outils. Utilisez ce code source comme référence des techniques de programmation ou adaptez-le à vos besoins spécifiques. Cependant, si vous avez modifié ce code source, FileNET ne peut pas assurer de support technique sur le programme exécutable qui en résulte. En outre, FileNET n'est pas tenu de fournir des mises à niveau permettant d'intégrer votre code source modifié aux améliorations ou aux corrections d'erreurs apportées sur la version distribuée de Capture Desktop.
+
+ 
+
+Exemple de code source IDMIS
+
+À l'exception du code source de Capture Desktop, tous les exemples ont été développés pour une utilisation avec IDMIS. De ce fait, il peuvent utiliser des fonctionnalités indisponibles avec IDMDS ou dont la syntaxe ou la sémantique doivent être modifiées pour prendre en charge IDMDS.
+
+Les problèmes suivants résultent de différences de sémantique entre IDMIS et IDMDS, les remarques STR n'étant pas concernées :
+
+1) L'exemple LocalMigrate essaie de déplacer le référentiel local vers le BES. IDMDS ne prend pas en charge un référentiel BES.
+
+2) L'exemple Login essaie d'ouvrir une session sur le RIL BES. IDMDS ne prend pas en charge un référentiel BES.
+
+3) IDMDS nécessite la fusion des documents de plusieurs pages en un seul fichier TIFF avant leur archivage. Si un programme ajoute un document TIFF de plusieurs pages à une bibliothèque DS sans exécuter au préalable le composant de fusion, une erreur est renvoyée.
+
+ 
+
+Bibliothèques de type
+
+Les informations sur les bibliothèques de type sont incorporées, pour tous les objets Panagon Capture 3.0.1, dans le code exécutable (.dll ou .ocx) de l'objet.
+
+Agent de routage
+
+L’énumération RouterConditionTyp contient l’ensemble des valeurs de la propriété ConditionCode de la commande d’agent de routage. La plupart des constantes contiennent une valeur de retour, toutefois, vous pouvez programmer l’interruption, l’achèvement ou la suspension de l’exécution du flux d’acquisition en définissant la constante appropriée de l’énumération.
+
+Constant
+
+Valeur
+
+Description
+
+RCC_CLOSED_ALL
+
+14
+
+Tout est fermé, y compris l’espace de travail et le VBA.
+
+RCC_CLOSED_VBA
+
+15
+
+La fermeture du VBA est terminée
+
+RCC_CLOSED_WORKSPACE
+
+16
+
+La fermeture de l’espace de travail est terminée
+
+RCC_DO_ABORT
+
+22
+
+Définissez cette valeur pour permettre l’interruption de l’exécution du flux d’acquisition
+
+RCC_DO_FINISH
+
+23
+
+Définissez cette valeur pour mettre fin immédiatement au flux d’acquisition
+
+RCC_DO_PAUSE
+
+20
+
+Définissez cette valeur pour suspendre le flux d’acquisition
+
+RCC_DO_RESUME
+
+21
+
+Définissez cette valeur pour reprendre le flux d’acquisition après une pause
+
+RCC_HALTED_BAD_COMPONENT
+
+30
+
+Arrêt du flux d’acquisition à cause d’un mauvais composant
+
+RCC_HALTED_BYREQUEST
+
+1
+
+Arrêt du flux d’acquisition suite à une requête
+
+RCC_HALTED_ERROR
+
+7
+
+Arrêt du flux d’acquisition suite à des erreurs
+
+RCC_HALTED_OK
+
+8
+
+Le flux d’acquisition s’est terminé normalement
+
+RCC_HALTED_BYDEMAND
+
+17
+
+Arrêt du flux d’acquisition sur demande
+
+RCC_HALTED_BYABANDON
+
+18
+
+Arrêt du flux d’acquisition suite à un abandon
+
+RCC_HALTED_TRAP
+
+29
+
+Arrêt du flux d’acquisition en présence d’un piège
+
+RCC_INITIALIZED_ALL
+
+5
+
+L’ensemble de l’initialisation est terminée
+
+RCC_INITIALIZED_PREWINDOW
+
+4
+
+L’initialisation pré-Windows est terminée
+
+RCC_INITIALIZED_VBA
+
+12
+
+VBA est initialisé
+
+RCC_INITALIZED_WORKSPACE
+
+13
+
+L’espace de travail est initialisé.
+
+RCC_LOAD_ERROR
+
+9
+
+Une erreur de chargement du flux d’acquisition est survenue
+
+RCC_LOADED
+
+6
+
+Le flux d’acquisition est chargé mais ne fonctionne pas encore
+
+RCC_NO_PATH
+
+3
+
+Il n’y a pas de flux d’acquisition à exécuter
+
+RCC_PAUSED
+
+19
+
+Si une commande d’obtention (Get) renvoie cette valeur, cela signifie que le flux d’acquisition est suspendu.
+
+RCC_RUN_ERROR
+
+10
+
+Une erreur est survenue lors d’une tentative de lancement du flux d’acquisition
+
+RCC_RUNNING
+
+2
+
+Si une commande d’obtention (Get) renvoie cette valeur, cela signifie que le flux d’acquisition est en cours d’exécution
+
+RCC_SUSPENDED_COMPREJECT
+
+25
+
+Suspension du flux d’acquisition car le composant est incapable de fonctionner sur ce lot ou d’exécuter la tâche sur ce lot.
+
+RCC_SUSPENDED_MISSING
+
+24
+
+Suspension du flux d’acquisition car un composant n’est pas installé
+
+RCC_SUSPENDED_TRANSITION
+
+26
+
+Suspension du flux d’acquisition à cause d’une commande d’enregistrement/d’arrêt
+
+RCC_UNINITIALIZED
+
+0
+
+Le flux d’acquisition n’est pas initialisé
+
+RCC_UNLOAD_ERROR
+
+11
+
+Le flux d’acquisition a été interrompu en cours de déchargement
+
+RCC_USER_ABORTED
+
+28
+
+L’utilisateur a interrompu le flux d’acquisition.
+
+RCC_USER_NOT_RERUN
+
+27
+
+Le flux d’acquisition n’a pas redémarré à la demande d’un utilisateur
+
+ 
+
+Restrictions et problèmes logiciels connus
+
+Généralités
+
+Si vous installez Panagon Print et Capture sur la même station de travail, Panagon Print doit être installé en premier. Panagon Print 4.x installe une version précédente de MSVCRT.dll, à laquelle il manque un point d'entrée spécifique (_lc_collate_cp) dont Capture a besoin.
+
+Installer Print après Capture crée un problème interdisant le démarrage de Capture 3.0.1.
+
+Vous trouverez ci-dessous l'ordre d'installation recommandé de Panagon Print et de Panagon Capture sur le même PC :
+
+Panagon Print 4.1 plus les correctifs obligatoires.
+IDMDT 3.0 plus les correctifs obligatoires.
+Optus FACSys 4.7
+Panagon Capture 3.0.1
+Référentiel BES
+
+Message affiché par le BES pendant le fonctionnement sans surveillance du composant Entrée de télécopies
+
+Un message peut apparaître de façon répétitive sur la station d'Entrée de télécopies quand elle détecte une déconnexion entre elle et le serveur IDMIS auquel elle était précédemment connectée. Quand ce problème se produit, la station d'Entrée de télécopies ne peut pas fonctionner sans surveillance. (STR 50449)
+
+Après suppression d'une page contenant une erreur, le dossier complet est réduit
+
+Après refus d'une image par la vérification des images, si la même image est supprimée alors que tous les lots de ce dossier de travail sont ouverts, ces lots sont réduits. Ceci ne se produit que dans un référentiel BES, pas dans un référentiel local. (STR 53893)
+
+Composants personnalisés
+
+Assistant de composants personnalisés
+
+Microsoft Visual C/C++ fournit automatiquement quatre cibles de génération pour chaque projet : Release, Debug, Unicode et Unicode/Debug. Seuls les fichiers nécessaires à la génération de la cible Release de votre composant personnalisé sont inclus dans les Outils de développement de Capture. Si vous essayez de générer une des trois autres cibles, vous aurez des erreurs de syntaxe et/ou de liaison. (STR 53978)
+
+Si vous utilisez l'Assistant de composants personnalisés pour créer un composant personnalisé dans Microsoft Visual C/C++, vous devez supprimer les cibles de génération non prises en charge et, si nécessaire, inclure des informations de débogage dans la génération.
+
+Suppression des cibles de génération non prises en charge
+
+Pour supprimer les cibles de génération non prises en charge, exécutez les étapes suivantes :
+
+Dans Microsoft Developer's Studio, sélectionnez la commande de menu Build\Configurations (Génération\Configurations).
+Dans la boîte de dialogue affichée, sélectionnez Win32 Debug dans la liste des configurations.
+Cliquez sur le bouton de suppression.
+Répétez les étapes 2 et 3 pour les configurations Win32 Unicode Debug et Win32 Unicode Release.
+Ajout d'informations de débogage à une génération
+
+Si vous souhaitez déboguer un composant personnalisé créé avec l'Assistant de composants personnalisés, vous pouvez ajouter à la génération Release des informations permettant de dérouler votre code pas à pas, mettre des points d'arrêt, etc.
+
+Pour ajouter des informations de débogage à une génération, exécutez les étapes suivantes :
+
+Sélectionnez « Build (Génération) », « Set Active Configuration (Définition de la configuration active) », « Your App - Win32 Release (Votre app - Version Win32) ».
+Allez dans « Project (Projet) », « Settings (Paramètres) », puis sélectionnez l'onglet « C/C++ ». Sous « General (Général) », vérifiez que la case « Generate browse info (Générer des informations de lecture) » est cochée.
+Sous l'onglet « Link (Liens) », vérifiez que la case « Generate debug info (Générer des infos de débogage) » est cochée.
+Dans le menu « Build (Génération) », sélectionnez « Rebuild All (Regénérer tout) ».
+Vous pouvez maintenant déboguer votre composant personnalisé.
+
+ 
+
+Version Desktop
+
+Capture Desktop ne retrace pas correctement pendant une indexation
+
+Capture Desktop ne retrace pas correctement la fenêtre de l'afficheur si cette dernière est activée pendant une indexation. Cela se produit lorsque Capture bascule entre la fenêtre du bureau et celle de l'afficheur. Pour éviter ce problème, désactivez la fenêtre de l'afficheur pendant une indexation. (STR 52809)
+
+La grille d'indexation ne peut pas être déplacée
+
+Dans Capture Professional, l'utilisateur peut configurer l'afficheur ou la grille d'indexation pour pouvoir les déplacer indépendamment de la fenêtre du programme principal. Dans Capture Desktop, seul l'afficheur peut être configuré de cette façon. (STR 53981)
+
+Traitement de documents
+
+Limites
+
+Les algorithmes du traitement des documents sont sensibles à la taille et à la résolution des images physiques. Ils sont optimisés pour des documents de formats courants (Letter, Legal et A4) à 200 PPP. Des résolutions supérieures et/ou des images plus grandes réduisent le débit global des algorithmes qui risquent même d'être incapables de traiter des très grandes images.
+
+En général, la plupart des fonctions du traitement des documents peuvent manipuler des images jusqu'à 29,7 cm de large et 66 cm de haut, à 200 PPP. Cependant, la fonction Inclinaison est limitée aux documents dont la hauteur ne dépasse pas 43 cm. Kofax s'attache à repousser cette limite, mais notez qu'il y de forts risques de perte de données quand vous inclinez des images de cette taille. (STR 43249)
+
+Le Traitement de documents sur un mauvais fichier ne signale pas que le dossier ou que le lot a une erreur
+
+Lors de l'exécution du Traitement de documents sur une image de mauvaise qualité avec une des fonctions ID de formulaires ou amélioration des bords, Capture ne signale d'erreur sur le lot. L'utilisateur ne peut pas savoir que le lot est mauvais. Il n'y a pas de remède connu à ce problème. (STR 51108)
+
+Erreur 200044 sur certaines images lors de l'exécution du Traitement de documents matériel
+
+Le Traitement de documents matériel ne peut pas traiter certains jeux d'images et renvoie une erreur 200044. (En attente/Fabricant STR 52046)
+
+Obtention d'une erreur « 20013 - Le périphérique n'est pas réservé » pendant l'exécution du Traitement de documents sur des images spécifiques
+
+Certaines images TIFF provoquent l'erreur « 20013 - Le périphérique n'est pas réservé » et l'arrêt du Traitement de documents. Ce problème semble se limiter aux images 100 PPP. (En attente/Fabricant STR 53684)
+
+Absence de moteur de Traitement de documents par défaut lors de la configuration du Traitement de documents avec l'Assistant de paramètres
+
+Le problème est dû à l'absence de sélection d'un moteur de Traitement de documents au moment de la création du jeu de paramètres. Cela signifie qu'aucun moteur de Traitement de documents n'a été attribué au nouveau lot et qu'il est donc impossible d'exécuter cette fonction. Le remède consiste à inclure un moteur dans le jeu de paramètres, à sélectionner un moteur à la création du lot ou à sélectionner un moteur après création du lot. Après sélection d'un moteur, le Traitement de documents doit fonctionner correctement. (STR 53880)
+
+Entrée de télécopies
+
+Si vous utilisez Optus FACSys 4.7 avec Panagon Capture 3.0.1, vous devez installer le dernier correctif trouvé sur le site Web d'Optus ci-dessous. Ce correctif est obligatoire pour remédier à la remarque STR 5192.
+
+ftp://ftp.css.filenet.com/pub/archives/hot_downloads/server_fixes/CaptureFax/Optus/
+
+Configuration recommandée pour le traitement de gros volumes
+
+Si votre environnement d'Entrée de télécopies a des impératifs de production de volumes importants et/ou doit fonctionner sans surveillance pendant des périodes prolongées (une semaine ou plus sans redémarrer le logiciel), FileNET recommande d'installer l'Entrée de télécopies et le Gestionnaire de télécopies d'Optus sur des stations de travail distinctes. Cela nécessite l'utilisation du client FACSys sur la station d'Entrée de télécopies de Capture.
+
+Utilisation de mémoire importante avec le paramètre par défaut des entrées du journal
+
+Quand l'Entrée de télécopies fonctionne sans surveillance pendant de longues périodes, le paramètre des entrées du journal doit être le plus bas possible. Ne pas suivre ce conseil peut provoquer un manque de mémoire sur la station d'Entrée de télécopies. (STR 52608)
+
+Si l'Entrée de télécopies est en mode IdleWait (PauseAttente), l'accès à TOUS les écrans de configuration est bloqué
+
+L'administrateur du système peut définir une période pendant laquelle la station d'Entrée de télécopies n'essaiera pas de traiter des données (par exemple parce que l'IDMIS est arrêté pour cause de sauvegarde). Pour cela, le mode IdleWait (PauseAttente) peut être activé sur la station d'Entrée de télécopies. Actuellement, l'utilisateur doit attendre la fin de cette période avant que le traitement puisse reprendre puisque les boîtes de dialogue de configuration sont inaccessibles tant que le mode IdleWait (PauseAttente) est actif. Un remède temporaire consiste à fermer l'application et à désactiver le mode IdleWait (PauseAttente) dans le registre. (STR 53639)
+
+Message « Chemin introuvable » suite à une désinstallation de la version 2.0.2 et à une installation de la version 3.0.1 de Capture
+
+Si la journalisation est activée au moment de la désinstallation de Capture 2.0.2 et que l'arborescence des répertoires du journal d'Entrée de télécopies est ensuite complètement supprimée, le lancement de l'Entrée de télécopies après installation de Capture 3.0.1 renvoie le message « Chemin introuvable » avec une erreur GPF. Quand Capture 2.0.2 est désinstallé, l'entrée du registre contenant l'arborescence des dossiers de l'Entrée de télécopies n'est pas supprimée. De ce fait, l'Entrée de télécopies 3.0.1 croit que cette arborescence existe toujours. Si vous prévoyez d'installer la version 3.0.1 sur une station où la version 2.0.2 était installée, ne supprimez pas l'arborescence des répertoires des journaux d'Entrée de télécopies. Si l'arborescence est supprimée accidentellement de votre station d'Entrée de télécopies, il faut la recréer avant de démarrer l'Entrée de télécopies. La clé de registre ci-dessous contient les informations relatives aux répertoires (STR 54085) :
+
+Poste de travail\HKEY_CURRENT_USER\Software\VB
+
+Poste de travail\HKEY_CURRENT_USER\Software\VBA Program Settings\Fax Entry
+
+L'Entrée de télécopie renvoie des identificateurs de messages au lieu du texte des messages
+
+Les erreurs d'Entrée de télécopie suivantes ne sont signalées que sous la forme de tuples d'erreurs sans texte descriptif supplémentaire :
+
+Erreurs générales de fonctionnement :
+
+<231,0,1> Fonction ITL non encore implémentée
+
+<231,0,2> Impossible d'allouer de la mémoire
+
+<231,0,3> Impossible de verrouiller la mémoire
+
+<231,0,4> Impossible de créer un fichier de travail temporaire
+
+<231,0,5> Impossible de créer un fichier de travail temporaire
+
+<231,0,6> Impossible de lire un fichier
+
+<231,0,7> Impossible d'écrire un fichier
+
+<231,0,8> Impossible de créer un fichier de travail temporaire
+
+<231,0,9> Paramètre d'entrée de fonction incorrect
+
+<231,0,10> Handle de session du gestionnaire CAS incorrect
+
+<231,0,11> Impossible de conserver le numéro multiplex pendant une ouverture
+de session ITL
+
+<231,0,12> Pas de session ITL ouverte -- Ouvrez d'abord une session WFF
+
+<231,0,13> Fin de la file d'attente atteinte -- Il n'y a plus de requête en attente
+
+<231,0,14> Fonction non prise en charge
+
+<231,0,15> Impossible d'accéder au fichier spécifié -- Fichier occupé
+
+<231,0,30> Le paramètre d'autorisation des fichiers Tiff ne permet pas l'accès spécifié
+
+<231,0,31> Tentative de création d'un fichier Tiff déjà existant
+
+<231,0,32> Impossible d'ouvrir un fichier Tiff -- Argument incorrect transmis
+
+<231,0,33> Impossible d'ouvrir un fichier Tiff -- Trop de fichiers ouverts -- Plus aucun handle de fichier disponible
+
+<231,0,34> Impossible d'ouvrir un fichier Tiff -- Le fichier spécifié n'existe pas ou est introuvable
+
+Erreurs de contrôle de session :
+
+<231,10,1> Une tentative d'ouverture de session sur le serveur LanFax a échoué
+
+<231,10,2> Une tentative d'ouverture de session sur le serveur LanFax a échoué -- Handle de session CAS incorrect
+
+<231,10,3> Impossible d'obtenir l'état du serveur LanFax
+
+<231,10,4> Un type de serveur LanFax incorrect a été spécifié pendant une ouverture de session
+
+<231,10,5> Un nom d'utilisateur du serveur LanFax incorrect a été spécifié pendant une ouverture de session
+
+Erreurs de télécopies sortantes :
+
+<231,20,1> Option de télécopies sortantes incorrecte -- Option ignorée
+
+<231,20,2> La page sortante spécifiée n'existe pas
+
+<231,20,3> Les informations sur la destination demandée n'existent pas
+
+<231,20,4> Impossible de soumettre une requête de télécopies sortantes au serveur LanFax
+
+Erreurs de télécopies entrantes :
+
+<231,30,1> Balises TIFF entrantes incorrectes
+
+<231,30,2> Le nombre de pages entrantes spécifié ne correspond pas au nombre réel de pages reçues
+
+Erreurs de gestion de file d'attente :
+
+<231,40,1> Requête trouvée dans une file d'attente de requêtes différente
+
+<231,40,2> Impossible d'annuler la requête spécifiée
+
+<231,40,3> Type de file d'attente de requêtes incorrect
+
+Erreurs du module de configuration :
+
+<231,70,1> Option de carte incorrecte
+
+Erreurs de modules divers :
+
+<231,80,1> Option de trace incorrecte
+
+<231,80,2> La définition de l'option de trace ITL a échoué
+
+Erreurs FACSys signalées par l'Entrée de télécopies
+
+L'Entrée de télécopies signale les erreurs provenant de FACSys sous la forme <231, 200, n>, où n est une erreur FACSys. Pour avoir des détails sur la signification de ces erreurs, consultez la documentation de FACSys.
+
+Indexation
+
+Si un champ de type chaîne a déjà une valeur, vous ne pouvez pas la voir
+
+Si un champ d'indexation de type chaîne contient déjà des données provenant d'une session d'indexation précédente ou d'une indexation automatique, vous ne pouvez pas voir les données existantes quand vous atteignez ce champ par tabulation. L'indexation met le curseur à la fin du champ auquel vous accédez par tabulation, ce qui empêche de voir les données situées au début du champ. Le remède consiste à utiliser les touches à flèches vers le haut ou vers le bas ou à appuyer sur la touche Entrée pour atteindre le champ suivant et toujours voir la date. (En attente/Fabricant STR 49952)
+
+Introduction d’un nouvel attribut dans une télécopie entrante
+
+Le nouvel attribut appelé "Receive Time String" contient la date et l’heure de réception de la télécopie reformatées de la manière suivante :
+
+mm/jj/aaaa hh:mm:ss
+
+Les 10 premiers caractères fournissent la date de réception : 2 chiffres pour le mois, 2 chiffres pour le jour et 4 chiffres pour l’année. Les 8 derniers caractères fournissent l’heure de réception : 2 chiffres pour les heures, 2 chiffres pour les minutes et 2 chiffres pour les secondes. Le format de cette chaîne est fixe et, contrairement à l’attribut qui lui est associé, l’heure de réception n’hérite PAS du format de la variable locale.
+
+Installation
+
+Message d'opération interdite obtenu avec Windows 95b et Windows 95c
+
+Après avoir installé le Traitement de documents de Capture Professional sur un ordinateur équipé de Windows 95b ou de Windows 95c et l'avoir redémarré, une fenêtre affiche un message d'erreur indiquant qu'une opération interdite a été exécutée. Ce problème ne semble pas avoir d’autres effets secondaires dans Capture et concerne le programme InstallShield, utilisé par le programme d’installation de Capture. (STR 53998 sera obsolète dans 3.1)
+
+La fermeture de la fenêtre du logiciel Kofax Image Controls à la place d'une annulation interrompt l'installation
+
+Pendant l'installation de Panagon Capture, pour annuler l'installation du logiciel Kofax Image Controls, veillez à sélectionner Annuler au lieu de cliquer sur la case « X » dans le coin supérieur droit de la fenêtre. Appuyer sur le bouton d'annulation du programme d'installation du logiciel Kofax Image Controls permet de poursuivre l'installation de Capture. Si vous fermez la fenêtre d'installation du logiciel Kofax Image Controls d'une autre façon, l'installation de Capture s'interrompt immédiatement et les applications Capture ne fonctionneront pas correctement. (STR 54050)
+
+Serveur de référentiel
+
+Dans Panagon Capture 3.0.1, une fois qu'un objet (c'est-à-dire un dossier, un lot, un document ou une page) a été chargé en mémoire, il a tendance à y rester. La seule façon de libérer la mémoire ou les objets chargés consiste à fermer tous les objets ouverts puis à actualiser l'objet conteneur. Dans le cas de stations qui traitent un grand nombre de lots, en particulier lorsqu'elles sont prévues pour fonctionner sans surveillance, ces objets peuvent rester en mémoire indéfiniment. Cela risque de provoquer des ralentissements et même des pannes système.
+
+Un nom de groupe de numérisation n'a pas été ajouté/extrait correctement
+
+La valeur de l'attribut Groupe n'est pas conservée de façon cohérente dans une application VB. (STR 50633)
+
+ 
+
+Numérisation – Générale
+
+Les propriétés de numérisation sont automatiquement réinitialisées
+
+Dans certains cas, les utilisateurs peuvent configurer des paramètres de numérisation qui ne sont pas pris en charge par Capture. Par exemple, des résolutions d'images supérieures à 800 PPP et certaines options de juxtaposition. Dans ce cas, le composant Numérisation ajuste le paramètre à la valeur la plus proche prise en charge par Capture. (STR 53782)
+
+Des pseudo images apparaissent dans l'Affichage liste lors d'une numérisation recto verso avec post-marquage
+Pour préallouer des ID d'images utilisables avec un post-marqueur, des objets image vide sont temporairement stockés dans le lot en cours pendant la numérisation. Ces images vides sont temporaires et remplacées dès que possible par les images correctes renvoyées par le scanner. Elles doivent être ignorées. (STR 53899)
+
+Capture Professional se termine si KFwrap/PTwrap est enregistré avec CaptureMgr
+
+Les modules KFWRAP.OCX et PTWRAP.OCX ne doivent pas être enregistrés avec le Gestionnaire Capture. Procéder ainsi rend impossible l'exécution de Capture Professional. (STR 54101)
+
+Numérisation ISIS
+
+Scanner Ricoh IS-520 non pris en charge
+
+FileNET et Pixel Translations ont rencontré des problèmes sérieux avec le pilote du scanner Ricoh 520. Ces problèmes incluent des erreurs de compression et semblent être liés à la synchronisation. Ricoh a arrêté la fabrication de ce scanner ; Ricoh et Pixel Translations ne fournissent aucun correctif du pilote. De ce fait, FileNET ne peut pas garantir un niveau de prise en charge quelconque pour ce scanner et déconseille son utilisation. (STR 52995 est Closed/Neverfix)
+
+Le détourage ne détoure pas correctement la zone spécifiée
+
+Quand un détourage est spécifié, le décalage horizontal semble être réduit d'environ 0,5 cm. Cela se produit sur les scanners Kodak 9500 et 3590. (En attente/Fabricant STR 46600)
+
+La case d'option Paysage est active même si le scanner ne prend pas en charge cette orientation
+
+Certains scanners basse et moyenne vitesse ne prennent pas en charge les pages qui dépassent 21,6 cm de large, bien que la case d'option reste active. Si le bouton Paysage est sélectionné, il remplace le paramètre avancé du pilote et peut provoquer une erreur quand l'onglet Géométrie de page est sélectionné. (STR 51209)
+
+Lors d'une modification des paramètres PPP ou couleur pour un scanner HP4c, la taille de la page est par défaut égale à 21,6 cm sur 35,6 cm
+
+Sur les scanners HP, si vous sélectionnez une taille de page égale à 21,6 cm sur 27,9 cm, puis si vous modifiez les paramètres PPP ou couleur du scanner, la boîte de dialogue redonne par défaut la taille 21,6 cm sur 35,6 cm. (En attente/Fabricant STR 53192)
+
+Le scanner est alimenté automatiquement même si une alimentation manuelle est demandée
+
+Si votre scanner peut fonctionner en alimentation automatique ou en scanner à plat, il numérise toujours en priorité la page située dans le dispositif d'alimentation automatique. D'après Pixel, le comportement du dispositif d'alimentation automatique est une limite physique du scanner et aucune modification du pilote est envisagée. Pour remédier à ce problème, enlevez les pages du dispositif d'alimentation automatique pour pouvoir utiliser la page située dans le scanner à plat. (En attente/Fabricant STR 53329)
+
+L'attribut déclare toujours Letter (unités anglaises) même si la page a une autre taille
+
+Certains attributs de pages numérisées montraient des informations incorrectes par rapport à ce que les utilisateurs avaient configuré. Il semble que ce problème soit spécifique au scanner HP 6250. (En attente/Fabricant STR 53337)
+
+La taille Lettre double du scanner RICOH 450 est détourée à 41,9 cm au lieu de 43,2 cm
+
+Quand un lot est configuré pour utiliser la taille Lettre double (c'est-à-dire la taille B ou 27,9 cm x 43,2 cm), la page est détourée à 1,3 cm du bas de la page après sa numérisation. (En attente/Fabricant STR 53517)
+
+Le scanner ne numérise pas correctement avec les paramètres 300 PPP ou plus et une échelle de 256 gris, et l'image est détourée
+
+Quand un document est numérisé à 300 PPP ou plus avec une échelle de 256 gris en mode recto verso, l'image est détourée à la moitié de la page. Si une densité supérieure est spécifiée, la page est encore plus détourée. (En attente/Fabricant STR 53519)
+
+Avec un scanner Kodak 3500D, une page de taille B est détourée de 0,32 cm sur le côté et en bas
+
+Quand vous numérisez des images de taille B sur un scanner Kodak DS3500D, la page finale est détourée horizontalement et verticalement de 0,32 cm. Ce scanner ne peut pas être alimenté manuellement et toutes les pages passent pas le dispositif d'alimentation automatique. La taille B fait 27,9 cm sur 17,78 cm ; réduire l'image de 0,32 cm n'a pas une incidence importante. (En attente/Fabricant STR 50246)
+
+Prise en charge du scanner Kodak 3590C
+
+Capture 3.0.1 ne prend pas en charge la numérisation recto verso « bichromodale » dans laquelle le recto du document est en couleur et le verso en noir et blanc. Le scanner 3590C peut être utilisé comme un scanner simple couleur ou noir et blanc, ou comme un scanner recto verso noir et blanc.
+
+Numérisation Kofax
+
+Si vous désinstallez Panagon Capture 3.0.1 et le réinstallez sur une station de numérisation Kofax avec une carte Adrenaline SCSI, vous devez aussi désinstaller et réinstaller les fichiers exécutables du matériel Kofax sur cette même station. Sinon, le pilote affiche une boîte de dialogue Avancée incorrecte et risque de ne pas numériser les images ou de ne pas les afficher correctement.
+
+Une erreur « Bad parameter in parameter list » (Paramètre incorrect dans la liste des paramètres) rend impossible l'ouverture de la boîte de dialogue Avancée
+
+Si vous sélectionnez la boîte de dialogue Avancée après avoir donné la valeur Métrique à l'attribut Unité, l'erreur « Bad parameter in parameter list » (Paramètre incorrect dans la liste des paramètres) est renvoyée. Pour y remédier, donnez la valeur Anglais à l'attribut Unité, puis ouvrez la boîte de dialogue Avancée. Ce problème ne se produit qu'avec le scanner Kodak 9500. (En attente/Fabricant STR 53784)
+
+La chaîne du post-marqueur s'imprime alors que le post-marqueur est désactivé
+
+La désactivation de l'option Post-marqueur de Kfbee ne donne aucune différence pendant la numérisation. La chaîne du post-marqueur est toujours imprimée sur l'image numérisée même après désactivation du post-marqueur. (En attente/Fabricant STR 48591)
+
+La numérisation ne fonctionne pas sur une feuille continue en mode recto verso sur les scanners B&H 8125D connectés à une carte Adrenaline
+Dans cette version, la numérisation continue en mode recto verso sur des scanners B&H connectés à une carte Adrenaline ne fonctionne pas. (En attente/Fabricant STR 53631)
+
+La boîte de dialogue Propriétés de numérisation reste ouverte même si la boîte de configuration de la numérisation a été fermée
+
+Certaines boîtes de dialogue des scanners Kofax restent ouvertes même après fermeture de leurs boîtes parent. Le nouveau composant de numérisation ne peut pas fermer ces boîtes de dialogue. (STR 53756)
+
+SetImageAddress et GetImageAddress ne fonctionnent pas avec les scanners Kodak DS9500D connectés à une carte Adrenaline SCSI
+
+Les fichiers exécutables du matériel Kofax Image Controls version 3.25 ne prennent pas en charge les appels aux fonctions SetImageAddress et GetImageAddress dans une application VB. (STR 53827)
+
+Ce problème a été résolu dans la version 3.3 des fichiers exécutables du matériel Kofax. Vous pouvez télécharger cette version sur le site suivant :
+
+ftp://ftp.kofax.com/pub/Adrenaline/AHRT330/AHRT330.exe
+
+Si vous avez déjà une ancienne version des fichiers exécutables du matériel Kofax sur votre PC, il faut la désinstaller avant d'installer la nouvelle. Vous devez aussi vérifier que la version du « micrologiciel SCSI de votre scanner » porte le numéro 9.12. Pour connaître le numéro de version du micrologiciel SCSI de votre scanner, contactez votre fournisseur Kodak.
+
+Veuillez noter que l'utilisation avec Capture de la version 3.3 des fichiers exécutables Kofax sera homologuée après la distribution officielle de Capture 3.0.1. Les résultats de cette homologation seront publiés dès que possible sur le site Web de CSS à l'adresse suivante : www.css.filenet.com.
+
+Impossible d’utiliser l’option Post-marqueur en mode numérisation continue
+
+La numérisation en mode continu avec le post-marqueur de date activé entraîne le renvoi du tuple d’erreur <88,0,59>. Pour remédier à cela, désactivez le mode de numérisation continue ou le post-marqueur. (STR 54789)
+
+Cliquer sur le bouton Terminer (Finish) pendant la numérisation du flux d’acquisition entraîne le renvoi d’un message d’erreur
+
+Si vous cliquez sur le bouton Terminer (Finish) alors qu’une numérisation est en cours dans un flux d’acquisition, le tuple d’erreur <88,0,59> est renvoyé. Après avoir sélectionné OK, le flux d’acquisition s’arrête, mais la dernière page numérisée peut être signalée comme étant erronée. (STR 54805)
+
+Afficheur
+
+L'afficheur n'arrive pas à charger certaines images JPEG qu'Internet Explorer peut charger
+
+Certaines images JPEG ne peuvent pas être affichées par l'afficheur de Capture. C'est un problème lié à l'afficheur IDM. (STR 53797)
+
+Spécificités de Windows 2000
+
+Accès aux systèmes IDMIS 3.5 tournant sous Windows 2000
+
+Un problème Microsoft de réseau empêche les logiciels IDM Desktop 3.1 et Capture 3.0.1 tournant sous des systèmes d’exploitation Windows 2000 d’accéder aux bibliothèques IDMIS 3.5 qui fonctionnent sous Windows 2000.
+
+Pour résoudre ce problème :
+
+Installez le correctif logiciel de Microsoft Windows 2000 : SETSOCKOPT supplémentaire (Q263823_W2K_SP2_x86_en.exe) sur toutes les machines Windows.
+Vérifiez sur le site ftp de FileNET que vous utilisez bien la dernière version de WAL 3.5.
+ 
+
+ 
+
+ 
