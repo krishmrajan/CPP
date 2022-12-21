@@ -1,0 +1,25 @@
+Public Sub download(ByVal id As String)
+Dim p8 As P8Connection = New P8Connection
+Dim conn As IConnection = p8.getConnection()
+Dim domain As IDomain = p8.getDomain(conn)
+Dim os As IObjectStore = p8.getObjectStore(domain)
+Dim doc As IDocument = Factory.Document.FetchInstance(os, id, Nothing)
+Dim elements As IContentElementList = doc.ContentElements
+Dim element As IContentTransfer = CType(elements(0), IContentTransfer)
+Dim filename As String = element.RetrievalName
+Dim stream As Stream = element.AccessContentStream()
+Dim mime As String = doc.MimeType
+Dim buffer(4096) As Byte
+Dim bytesRead As Integer = stream.Read(buffer, 0, buffer.Length)
+Dim outStream As Stream = Response.OutputStream
+
+Response.AddHeader(“Content-Disposition”, “attachment; filename=” + filename)
+Response.ContentType = mime
+
+While (bytesRead > 0)
+outStream.Write(buffer, 0, bytesRead)
+bytesRead = stream.Read(buffer, 0, buffer.Length)
+End While
+stream.Close()
+outStream.Close()
+End Sub
